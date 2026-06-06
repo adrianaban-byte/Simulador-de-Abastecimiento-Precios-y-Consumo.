@@ -22,7 +22,7 @@
 body {
     
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: linear-gradient(rgba(5, 7, 10, 0.88), rgba(5, 7, 10, 0.88)), url('../imagen/Alimentos.jpg');
+    background-image: linear-gradient(rgba(5, 7, 10, 0.88), rgba(5, 7, 10, 0.88)), url('imagen/Alimentos.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
