@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Precios - Canasta Familiar</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Simulador de Abastecimiento, Precios y Consumo</h1>
+        <p class="subtitle">Objetivo: Analizar el impacto de los cambios de precios en la canasta familiar</p>
+    </header>
+
+    <main>
+        <section id="contexto" class="card">
+            <h2>Contexto del Desafío: Simulador de Precios de Alimentos durante Bloqueos</h2>
+            <p>En el contexto actual de desabastecimiento de productos esenciales a causa de los bloqueos, este módulo educativo analiza el impacto real del incremento de precios en la canasta familiar. A través de modelos matemáticos de cálculo directo, el sistema evalúa la pérdida del poder adquisitivo y el gasto imprevisto mensual que afrontan los hogares ante la variación de costos de productos esenciales de primera necesidad.</p>
+        </section>
+
+        <div class="contenedor-dos-columnas">
+            
+            <div class="columna">
+                <section id="simulador" class="card">
+                    <h2>Simulador de Precios</h2>
+                    <form id="formulario-simulador">
+                        <div class="form-group campo-rojo">
+                            <label for="producto">Producto de la canasta:</label>
+                            <select id="producto" required>
+                                <option value="">-- Selecciona un producto --</option>
+                                <option value="Arroz">Arroz (Quintal)</option>
+                                <option value="Papa">Papa (Arroba)</option>
+                                <option value="Aceite">Aceite (Litro)</option>
+                                <option value="Carne de Pollo">Carne de Pollo (Kilo)</option>
+                                <option value="Huevo">Huevo (Maple)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group campo-amarillo">
+                                <label for="precio-anterior">Precio Anterior (Bs):</label>
+                                <input type="number" id="precio-anterior" step="0.1" min="0.1" placeholder="Ej: 8.00" required>
+                            </div>
+                            <div class="form-group campo-verde">
+                                <label for="precio-actual">Precio Actual (Bs):</label>
+                                <input type="number" id="precio-actual" step="0.1" min="0.1" placeholder="Ej: 11.00" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group campo-azul">
+                                <label for="cantidad">Cantidad mensual consumida:</label>
+                                <input type="number" id="cantidad" min="1" placeholder="Ej: 5" required>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" id="btn-calcular" class="btn-primary">Calcular Impacto</button>
+                            <button type="reset" id="btn-limpiar" class="btn-secondary">Limpiar Datos</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <div class="columna">
+                <section id="resultados" class="card">
+                    <h2>Resultados del Análisis</h2>
+                    <div id="contenedor-alerta" class="alerta"></div>
+                    
+                    <div class="dashboard-grafico">
+                        <div class="grafica-radial-contenedor">
+                            <div class="grafica-radial" id="radial-porcentaje">
+                                <div class="grafica-radial-interno">
+                                    <span id="res-porcentaje">0%</span>
+                                </div>
+                            </div>
+                            <span class="grafica-etiqueta">Aumento</span>
+                        </div>
+
+                        <div class="barras-analisis">
+                            <div class="barra-grupo">
+                                <div class="barra-etiquetas">
+                                    <span>Gasto Anterior</span>
+                                    <span id="res-gasto-anterior">0.00 Bs</span>
+                                </div>
+                                <div class="barra-progreso-fondo">
+                                    <div class="barra-progreso verde" id="barra-anterior"></div>
+                                </div>
+                            </div>
+
+                            <div class="barra-grupo">
+                                <div class="barra-etiquetas">
+                                    <span>Gasto Actual</span>
+                                    <span id="res-gasto-actual">0.00 Bs</span>
+                                </div>
+                                <div class="barra-progreso-fondo">
+                                    <div class="barra-progreso rojo" id="barra-actual"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr>
+                                <th>Concepto Evaluado</th>
+                                <th>Valor Calculado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Incremento por Unidad</td>
+                                <td id="res-incremento-precio">0.00 Bs</td>
+                            </tr>
+                            <tr>
+                                <td>Gasto Adicional Total</td>
+                                <td id="res-gasto-adicional" class="text-critico">0.00 Bs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <section id="casos-estudio" class="card">
+            <h2>Casos de Estudio para Probar (Escenario B)</h2>
+            <p>Utiliza estos datos reales recolectados en el mercado local para verificar el correcto funcionamiento del modelo matemático del simulador:</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto Evaluado</th>
+                            <th>Precio Anterior</th>
+                            <th>Precio Actual</th>
+                            <th>Cantidad Mensual</th>
+                            <th>Acción Rápida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Carne de pollo (Kilo)</strong></td>
+                            <td>23.00 Bs</td>
+                            <td>38.00 Bs</td>
+                            <td>3 unidades</td>
+                            <td><button class="btn-sm" onclick="cargarCaso(23, 38, 3, 'Carne de Pollo')">Probar Caso</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Huevo (Maple)</strong></td>
+                            <td>30.00 Bs</td>
+                            <td>40.00 Bs</td>
+                            <td>3 unidades</td>
+                            <td><button class="btn-sm" onclick="cargarCaso(30, 40, 3, 'Huevo')">Probar Caso</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aceite (Litro)</strong></td>
+                            <td>12.00 Bs</td>
+                            <td>18.00 Bs</td>
+                            <td>4 unidades</td>
+                            <td><button class="btn-sm" onclick="cargarCaso(12, 18, 4, 'Aceite')">Probar Caso</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="creditos" class="card">
+            <h2>Conclusiones y Créditos</h2>
+            <p><strong>Aprendizaje del Proyecto:</strong> Al implementar este modelo, queda en evidencia matemática cómo las variaciones directas en el costo de los alimentos alteran de forma drástica el presupuesto mensual. Esto demuestra que para mantener el mismo nivel de consumo, los hogares se ven obligados a desviar recursos de otras áreas esenciales, comprometiendo su estabilidad económica familiar.</p>
+            <hr class="divider">
+            <p class="autor">Desarrollado por: <span>Adrian U. Aban</span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Programación Web I - Simulador de Abastecimiento, Precios y Consumo</p>
+    </footer>
+
+    <div class="personaje-fijo-contenedor">
+        <div class="avatar-marco">
+            <img src="C:\Users\ADRIAN\Desktop\proyecto-web-crisis\imagen\Achu_Aban.png" alt="Adrian" class="imagen-autor-fija">
+        </div>
+        <div class="tooltip-personaje">¿Listo para el análisis?</div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

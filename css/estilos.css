@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;800;900&display=swap');
+
+:root {
+    --bg-principal: #05070a;
+    --bg-tarjeta: #090d14;
+    --texto-principal: #d1d7e0;
+    --texto-secundario: #5c698a;
+    --bolivia-rojo: #ff3b30;
+    --bolivia-amarillo: #ffcc00;
+    --bolivia-verde: #34c759;
+    --borde-glow: #141b26;
+    --hollow-blue: #00d2ff;
+    --hollow-void: #020305;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(rgba(5, 7, 10, 0.88), rgba(5, 7, 10, 0.88)), url('../imagen/Alimentos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--texto-principal);
+    line-height: 1.25;
+    padding-bottom: 60px;
+}
+
+header {
+    background: linear-gradient(180deg, #0d131f 0%, var(--bg-principal) 100%);
+    border-bottom: 3px solid var(--bolivia-amarillo);
+    text-align: center;
+    padding: 3rem 1rem;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.15);
+}
+
+header h1 {
+    
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+main {
+    max-width: 1240px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+
+.contenedor-dos-columnas {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.columna {
+    width: 50%;
+    float: left;
+    padding: 0 12px;
+}
+
+.clear {
+    clear: both;
+}
+
+.card {
+    
+    background-color: rgba(9, 13, 20, 0.75); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    border: 1px solid var(--borde-glow);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 210, 255, 0.02);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--bolivia-rojo), var(--bolivia-amarillo), var(--bolivia-verde));
+    opacity: 0.35;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:hover {
+    border-color: var(--hollow-blue);
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.2), inset 0 0 15px rgba(0, 210, 255, 0.04);
+    transform: translateY(-2px);
+}
+
+h2 {
+    
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    font-size: 1.35rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    border-bottom: 2px solid var(--bolivia-rojo);
+    padding-bottom: 5px;
+    text-shadow: 0 0 10px rgba(255, 59, 48, 0.25);
+}
+
+p {
+    color: var(--texto-principal);
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+input, select {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    background-color: var(--hollow-void);
+    border: 1px solid var(--borde-glow);
+    color: #ffffff;
+    padding: 0.85rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none; 
+}
+
+select {
+    cursor: pointer; 
+}
+
+
+.form-group.campo-rojo:focus-within {
+    border-color: rgba(255, 59, 48, 0.4);
+    box-shadow: 0 0 15px rgba(255, 59, 48, 0.25);
+}
+.form-group.campo-rojo input:focus, .form-group.campo-rojo select:focus { border-color: var(--bolivia-rojo); }
+
+.form-group.campo-amarillo:focus-within {
+    border-color: rgba(255, 204, 0, 0.4);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.25);
+}
+.form-group.campo-amarillo input:focus { border-color: var(--bolivia-amarillo); }
+
+.form-group.campo-verde:focus-within {
+    border-color: rgba(52, 199, 89, 0.4);
+    box-shadow: 0 0 15px rgba(52, 199, 89, 0.25);
+}
+.form-group.campo-verde input:focus { border-color: var(--bolivia-verde); }
+
+.form-group.campo-azul:focus-within {
+    border-color: rgba(0, 210, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.25);
+}
+.form-group.campo-azul input:focus { border-color: var(--hollow-blue); }
+
+label {
+   
+    font-family: 'Orbitron', sans-serif;
+    display: block;
+    color: var(--texto-secundario);
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-row {
+    width: 100%;
+}
+.form-row .form-group {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+}
+.form-row .form-group:nth-child(even) {
+    margin-left: 3%;
+}
+
+.button-group {
+    margin-top: 1.5rem;
+}
+
+button {
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    padding: 0.85rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--bolivia-verde) 0%, #2ecc71 100%);
+    color: #05070a;
+    box-shadow: 0 0 15px rgba(52, 199, 89, 0.3);
+    margin-right: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 0 25px rgba(52, 199, 89, 0.6);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--texto-principal);
+    border: 1px solid var(--borde-glow);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: var(--texto-principal);
+    transform: translateY(-1px);
+}
+
+.btn-sm {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    background-color: #101520;
+    color: var(--bolivia-amarillo);
+    border: 1px solid rgba(255, 204, 0, 0.2);
+}
+
+.btn-sm:hover {
+    background-color: var(--bolivia-amarillo);
+    color: #05070a;
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
+}
+
+
+.dashboard-grafico {
+    width: 100%;
+    background-color: var(--hollow-void);
+    border: 1px solid var(--borde-glow);
+    padding: 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+}
+
+.grafica-radial-contenedor {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.grafica-radial {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: conic-gradient(var(--bolivia-rojo) 0%, var(--borde-glow) 0%);
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(255, 59, 48, 0.2);
+    position: relative;
+    transition: background 0.4s ease;
+}
+
+.grafica-radial-interno {
+    width: 69px;
+    height: 69px;
+    background-color: var(--bg-tarjeta);
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.grafica-radial-interno span {
+    font-family: 'Orbitron', sans-serif; 
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 69px;
+    text-shadow: 0 0 10px var(--bolivia-rojo);
+}
+
+.grafica-etiqueta {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--texto-secundario);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 5px;
+}
+
+.barras-analisis {
+    width: 65%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4%;
+}
+
+.barra-grupo {
+    margin-bottom: 0.8rem;
+}
+
+.barra-etiquetas {
+    width: 100%;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+}
+.barra-etiquetas span:nth-child(2) {
+    float: right;
+}
+
+.barra-progreso-fondo {
+    width: 100%;
+    height: 12px;
+    background-color: #111622;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.barra-progreso {
+    height: 100%;
+    width: 0%;
+    border-radius: 6px;
+    transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.barra-progreso.verde { background: linear-gradient(90deg, #1b6930, var(--bolivia-verde)); box-shadow: 0 0 12px rgba(52, 199, 89, 0.5); }
+.barra-progreso.rojo { background: linear-gradient(90deg, #991f19, var(--bolivia-rojo)); box-shadow: 0 0 12px rgba(255, 59, 48, 0.5); }
+
+
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 0.5rem 0; }
+th, td { padding: 0.8rem; text-align: left; border-bottom: 1px solid var(--borde-glow); }
+
+th { 
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0c121c; 
+    color: #ffffff; 
+    font-size: 0.8rem; 
+    letter-spacing: 0.5px; 
+    text-transform: uppercase; 
+}
+
+td { font-size: 0.9rem; }
+
+
+table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+
+table tbody tr:hover {
+    background-color: rgba(0, 210, 255, 0.04);
+    transition: background-color 0.2s ease;
+}
+
+.alerta { padding: 1rem; border-radius: 6px; margin-bottom: 1.2rem; font-weight: 600; font-size: 0.9rem; border-left: 4px solid transparent; }
+.alerta-critica {
+    background-color: rgba(255, 59, 48, 0.03);
+    color: var(--bolivia-rojo);
+    border: 1px solid rgba(255, 59, 48, 0.1);
+    border-left: 4px solid var(--bolivia-rojo);
+}
+
+.text-critico { color: var(--bolivia-rojo); font-weight: bold; text-shadow: 0 0 8px rgba(255, 59, 48, 0.3); }
+.divider { border: 0; height: 1px; background-color: var(--borde-glow); margin: 2rem 0 1.5rem 0; }
+.autor span { color: var(--bolivia-amarillo); font-weight: bold; text-shadow: 0 0 5px rgba(255, 204, 0, 0.3); }
+footer { text-align: center; padding: 2rem; color: var(--texto-secundario); font-size: 0.85rem; background-color: #070a0f; border-top: 1px solid var(--borde-glow); }
+
+
+.personaje-fijo-contenedor {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-marco {
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, #101622 0%, #040609 100%);
+    border-radius: 50%;
+    border: 2px solid var(--bolivia-amarillo);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden; 
+}
+
+.imagen-autor-fija {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.personaje-fijo-contenedor:hover .avatar-marco {
+    transform: scale(1.12) translateY(-5px);
+    border-color: var(--bolivia-verde);
+    box-shadow: 0 0 20px rgba(52, 199, 89, 0.5);
+}
+
+.tooltip-personaje {
+    font-family: 'Orbitron', sans-serif;
+    position: absolute;
+    bottom: 85px;
+    left: 5px;
+    background-color: #030508;
+    color: #ffffff;
+    border: 1px solid var(--hollow-blue);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.personaje-fijo-contenedor:hover .tooltip-personaje {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@media (max-width: 900px) {
+    .columna {
+        width: 100%;
+        float: none;
+        padding: 0;
+    }
+    .form-row .form-group {
+        width: 100%;
+        display: block;
+        margin-left: 0 !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .grafica-radial-contenedor {
+        width: 100%;
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+    .barras-analisis {
+        width: 100%;
+        display: block;
+        margin-left: 0;
+    }
+    header h1 { font-size: 1.5rem; }
+    .avatar-marco { width: 55px; height: 55px; }
+}
